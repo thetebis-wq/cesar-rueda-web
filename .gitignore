@@ -1,0 +1,29 @@
+﻿# Archivos del Sistema Operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Secretos y Variables de Entorno
+.env
+.env.local
+*.key
+*.pem
+serviceAccountKey*.json
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Logs y Temporales
+*.log
+*.tmp
+.cache/
+
+# Entornos y Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/

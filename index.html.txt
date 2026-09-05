@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>César Rueda | Desprogramación Evolutiva & Liberación de Patrones</title>
+  <meta name="description" content="Descubre y libera los patrones familiares inconscientes que bloquean tu dinero, tus relaciones o tu bienestar. Sesiones online 1 a 1 con César Rueda Murillo, egresado de Campus CDE." />
+  
+  <!-- Tipografía Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #1E3A8A; /* Azul profundo reflexivo */
+      --primary-light: #3B82F6;
+      --accent: #D97706; /* Ámbar cálido / Oro sutil */
+      --accent-soft: #FEF3C7;
+      --sage: #059669; /* Verde bienestar */
+      --bg-light: #F8FAFC;
+      --surface: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --whatsapp: #25D366;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: var(--text-main);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Contenedor universal */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), #2563EB);
+      color: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand-text h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-cta:hover {
+      background: #1D4ED8;
+      transform: translateY(-1px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 70px 0 50px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge-cde {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: #92400E;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid #FDE68A;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary-light);
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+
+    .btn-primary {
+      background: var(--whatsapp);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--primary);
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #F1F5F9;
+    }
+
+    .hero-guarantees {
+      display: flex;
+      gap: 24px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .hero-guarantees span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Perfil Card */
+    .therapist-card {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-xl);
+      text-align: center;
+      position: relative;
+    }
+
+    .therapist-img-wrapper {
+      width: 100%;
+      height: 320px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+      background: linear-gradient(180deg, #93C5FD 0%, #1E3A8A 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .therapist-img-placeholder {
+      color: white;
+      font-size: 5rem;
+      opacity: 0.8;
+    }
+
+    .therapist-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+    }
+
+    .therapist-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .therapist-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .online-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #DCFCE7;
+      color: #166534;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .online-dot {
+      width: 8px;
+      height: 8px;
+      background: #22C55E;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* SECCIÓN ESCÁNER INTERACTIVO (LEAD MAGNET AI) */
+    .scanner-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .section-tag {
+      color: var(--primary-light);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .quiz-container {
+      background: var(--surface);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-xl);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px;
+      position: relative;
+    }
+
+    .quiz-progress {
+      height: 6px;
+      background: #E2E8F0;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      width: 33%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transition: width 0.3s ease;
+    }
+
+    .quiz-step {
+      display: none;
+    }
+
+    .quiz-step.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-question {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .quiz-hint {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .option-btn {
+      background: var(--bg-light);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--primary-light);
+      background: #EFF6FF;
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: #DBEAFE;
+      color: var(--primary);
+    }
+
+    .quiz-result {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .result-badge {
+      background: #FEF3C7;
+      color: #92400E;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .result-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .result-body {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      text-align: left;
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* SECCIÓN PILARES / SÍNTOMAS */
+    .pillars-section {
+      padding: 80px 0;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #CBD5E1;
+    }
+
+    .pillar-icon {
+      width: 50px;
+      height: 50px;
+      background: #EFF6FF;
+      color: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .pillar-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* SECCIÓN METODOLOGÍA (CÓMO FUNCIONA) */
+    .how-it-works {
+      padding: 80px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .step-item {
+      position: relative;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .step-item h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .step-item p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* SECCIÓN PRECIOS / CTA FINAL */
+    .cta-final {
+      padding: 90px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+      color: white;
+    }
+
+    .cta-final h2 {
+      color: white;
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-final p {
+      color: #94A3B8;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 36px auto;
+    }
+
+    .cta-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .cta-price-tag {
+      font-size: 0.9rem;
+      color: #FBBF24;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .cta-session-details {
+      margin: 20px 0;
+      text-align: left;
+      font-size: 0.92rem;
+      color: #CBD5E1;
+    }
+
+    .cta-session-details li {
+      margin-bottom: 10px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      padding: 80px 0;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px 20px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      display: none;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* DISCLAIMER & FOOTER */
+    .footer {
+      background: #0B0F19;
+      color: #64748B;
+      padding: 40px 0 20px 0;
+      font-size: 0.85rem;
+    }
+
+    .disclaimer-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--whatsapp);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      font-size: 1.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .floating-wa:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 868px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <div class="brand-badge">CR</div>
+        <div class="brand-text">
+          <h4>César Rueda Murillo</h4>
+          <p>Terapeuta Certificado Campus CDE</p>
+        </div>
+      </a>
+      <a href="https://wa.me/525574333257?text=Hola%20Cesar,%20quiero%20información%20para%20agendar%20una%20sesión%20de%20desprogramación%20evolutiva" target="_blank" class="nav-cta">
+        <span>Agendar Sesión</span>
+        <span>→</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-cde">
+          <span>🎓 Egresado Oficial Campus CDE</span>
+        </div>
+        <h1>
+          Libera los <span class="font-serif">patrones familiares</span> que están frenando tu vida.
+        </h1>
+        <p class="hero-lead">
+          Descubre el origen inconsciente detrás de tus bloqueos económicos, de pareja o ansiedad. Mediante la <strong>Desprogramación Evolutiva</strong>, desactivamos la lealtad que no te pertenece en una sola sesión profunda.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://wa.me/525574333257?text=Hola%20Cesar,%20vi%20tu%20perfil%20y%20me%20gustaria%20agendar%20una%20sesion%20online" target="_blank" class="btn-primary">
+            <span>💬 Hablar con César por WhatsApp</span>
+          </a>
+          <a href="#test-inconsciente" class="btn-secondary">
+            <span>🔍 Hacer Test de Patrones (Gratis)</span>
+          </a>
+        </div>
+
+        <div class="hero-guarantees">
+          <span>✓ Sesión 1 a 1 por Google Meet</span>
+          <span>✓ Pacientes en México y el Mundo</span>
+          <span>✓ Confidencialidad Total</span>
+        </div>
+      </div>
+
+      <!-- Tarjeta del Terapeuta -->
+      <div class="therapist-card">
+        <div class="therapist-img-wrapper">
+          <div class="therapist-img-placeholder">👤</div>
+          <div class="therapist-tag">
+            <strong>César Rueda Murillo</strong> • Especialista en Reprogramación Inconsciente
+          </div>
+        </div>
+        <div class="therapist-info">
+          <span class="online-indicator">
+            <span class="online-dot"></span> Agenda Abierta para Sesiones Online
+          </span>
+          <p style="margin-top: 10px;">Acompañamiento personalizado desde la comodidad de tu hogar.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ESCÁNER INTERACTIVO CON IA (LEAD MAGNET) -->
+  <section id="test-inconsciente" class="scanner-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Herramienta Interactiva</span>
+        <h2>¿Qué patrón inconsciente estás repitiendo?</h2>
+        <p>Responde 3 preguntas guiadas para descubrir la posible lealtad familiar que está actuando en tu vida hoy.</p>
+      </div>
+
+      <div class="quiz-container">
+        <div class="quiz-progress">
+          <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+        </div>
+
+        <!-- Paso 1 -->
+        <div id="step-1" class="quiz-step active">
+          <div class="quiz-question">1. ¿En qué área de tu vida sientes un estancamiento recurrente?</div>
+          <div class="quiz-hint">Selecciona la situación donde sientes que tus esfuerzos no rinden frutos:</div>
+          <div class="quiz-options">
+            <button class="option-btn" onclick="selectOption(1, 'Dinero y Abundancia')">
+              <span>💰 Dinero: Por más que trabajo, el dinero se esfuma o no llega</span>
+              <span>→</span>
+            </button>
+            <button class="option-btn" onclick="selectOption(1, 'Relaciones y Pareja')">
+              <span>💔 Pareja: Repito patrones de abandono, frialdad o conflicto</span>
+              <span>→</span>
+            </button>
+            <button class="option-btn" onclick="selectOption(1, 'Ansiedad y Carga Emocional')">
+              <span>⚡ Ansiedad: Siento que cargo con el peso de toda mi familia</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div id="step-2" class="quiz-step">
+          <div class="quiz-question">2. ¿Qué historia o vivencia resuena en tus padres o abuelos?</div>
+          <div class="quiz-hint">El árbol genealógico busca compensar vivencias dolorosas del pasado:</div>
+          <div class="quiz-options">
+            <button class="option-btn" onclick="selectOption(2, 'Quiebras económicas o pérdidas drásticas')">
+              <span>📉 Hubo pérdidas económicas graves, estafas o despojos</span>
+              <span>→</span>
+            </button>
+            <button class="option-btn" onclick="selectOption(2, 'Madres solteras o separaciones difíciles')">
+              <span>🏚️ Mujeres solas, hombres ausentes o infidelidades cíclicas</span>
+              <span>→</span>
+            </button>
+            <button class="option-btn" onclick="selectOption(2, 'Sacrificio extremo por los demás')">
+              <span>🛡️ Antepasados que sacrificaron sus sueños para salvar a otros</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div id="step-3" class="quiz-step">
+          <div class="quiz-question">3. Cuando estás a punto de lograr lo que deseas, ¿qué emoción surge?</div>
+          <div class="quiz-hint">Esta emoción es la firma biológica de la creencia heredada:</div>
+          <div class="quiz-options">
+            <button class="option-btn" onclick="finishQuiz('Culpa por superar al clan')">
+              <span>😣 Culpa: Siento que si me va muy bien, traiciono a mi familia</span>
+              <span>Finalizar Diagnóstico</span>
+            </button>
+            <button class="option-btn" onclick="finishQuiz('Miedo al abandono o al rechazo')">
+              <span>😨 Miedo: Siento pavor a quedarme solo si cambio mi forma de vivir</span>
+              <span>Finalizar Diagnóstico</span>
+            </button>
+            <button class="option-btn" onclick="finishQuiz('Agotamiento y autosabotaje')">
+              <span>🛑 Autosabotaje: Me enfermo o cometo un error que arruina el avance</span>
+              <span>Finalizar Diagnóstico</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <div id="step-result" class="quiz-step">
+          <div class="quiz-result">
+            <span class="result-badge">Pre-Diagnóstico Sistémico</span>
+            <div id="res-title" class="result-title">Patrón Identificado</div>
+            <div id="res-body" class="result-body"></div>
+            
+            <p style="margin-bottom: 20px; font-weight: 600;">
+              Este patrón no se elimina con fuerza de voluntad; se desprograma haciendo consciente la lealtad oculta.
+            </p>
+
+            <a id="res-whatsapp-btn" href="#" target="_blank" class="btn-primary" style="display: inline-flex;">
+              <span>💬 Desprogramar este patrón con César en Sesión 1 a 1</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE INTERVENCIÓN -->
+  <section class="pillars-section container">
+    <div class="section-header">
+      <span class="section-tag">Áreas de Acompañamiento</span>
+      <h2>¿Qué podemos desprogramar juntos?</h2>
+      <p>Cualquier situación en la que sientas que estás viviendo en piloto automático.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">🪙</div>
+        <h3>Bloqueos de Abundancia</h3>
+        <p>Culpa inconsciente por ganar más que tus padres, miedo a la avaricia o lealtades a la carencia del clan familiar.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">❤️</div>
+        <h3>Conflictos de Pareja</h3>
+        <p>Atracción repetitiva de parejas no disponibles, miedo al compromiso o necesidad inconsciente de salvar a los demás.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">🌿</div>
+        <h3>Cargas Transgeneracionales</h3>
+        <p>Sensación de vivir la vida de alguien más, duelos no resueltos de ancestros y mandatos familiares limitantes.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">🕊️</div>
+        <h3>Somatización del Estrés</h3>
+        <p>Comprensión del sentido biológico de emociones reprimidas que el cuerpo manifiesta como agotamiento crónico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA LA SESIÓN -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">El Método</span>
+        <h2>¿Cómo es una sesión de Desprogramación Evolutiva?</h2>
+        <p>Un proceso estructurado, respetuoso y de alta efectividad que se realiza en 3 fases:</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h3>Mapeo del Síntoma</h3>
+          <p>Analizamos el conflicto exacto que te aqueja hoy y rastreamos en tu árbol genealógico el momento biológico donde se originó.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h3>Toma de Conciencia y Liberación</h3>
+          <p>En consulta 1 a 1 identificamos la creencia inconsciente y realizamos el acto de liberación emocional para cortar la lealtad invisible.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h3>Integración (21 a 40 días)</h3>
+          <p>Te llevas ejercicios prácticos, cartas o diarios de introspección para que tu mente asiente la nueva información neuronal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+  <section class="faq-section container">
+    <div class="section-header">
+      <span class="section-tag">Respuestas Claras</span>
+      <h2>Preguntas Frecuentes</h2>
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto;">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>¿Qué diferencia hay entre esto y la terapia psicológica tradicional?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          La Desprogramación Evolutiva no es un proceso de años de charla; es una técnica focalizada que busca en pocas sesiones el origen transgeneracional exacto del conflicto, permitiendo tomar conciencia y romper el ciclo rápidamente.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>¿Cómo se realiza la sesión si no vivo en México?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          El 100% de las sesiones se realizan de forma online mediante videollamada privada por Google Meet o Zoom. Solo necesitas un lugar tranquilo, libre de interrupciones, y conexión a internet.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>¿Esto sustituye un tratamiento médico o psiquiátrico?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          De ninguna manera. La desprogramación evolutiva es un método complementario de autoconocimiento y bienestar emocional. Jamás sugerimos suspender medicamentos ni prescindir de la atención médica correspondiente.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Da el primer paso hacia tu libertad emocional</h2>
+      <p>No tienes por qué seguir cargando las historias no resueltas de tus antepasados.</p>
+
+      <div class="cta-box">
+        <div class="cta-price-tag">Sesión Individual Online</div>
+        <h3 style="font-size: 1.8rem; margin-bottom: 8px;">Acompañamiento 1 a 1</h3>
+        <p style="color: #94A3B8; font-size: 0.9rem;">Duración: 60 a 90 minutos vía Google Meet</p>
+
+        <ul class="cta-session-details">
+          <li>✓ Diagnóstico de árbol genealógico e inconsciente</li>
+          <li>✓ Desactivación del programa biológico limitante</li>
+          <li>✓ Protocolo de integración para el hogar</li>
+          <li>✓ Soporte posterior para dudas por WhatsApp</li>
+        </ul>
+
+        <a href="https://wa.me/525574333257?text=Hola%20Cesar,%20quiero%20agendar%20mi%20sesi%C3%B3n%20online%20de%20desprogramaci%C3%B3n" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
+          <span>Agendar mi Consulta con César</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER Y DISCLAIMER LEGAL -->
+  <footer class="footer">
+    <div class="container">
+      <div class="disclaimer-card">
+        <strong>Aviso Legal & Responsabilidad Ética:</strong> La Desprogramación Evolutiva impartida por César Rueda Murillo (Egresado de Campus CDE) es un servicio de acompañamiento enfocado exclusivamente en el crecimiento personal, desarrollo humano y bienestar emocional. No constituye práctica médica, psicológica ni psiquiátrica oficial, ni pretende diagnosticar, tratar o curar enfermedades en los términos de la legislación sanitaria. Consulte siempre a su profesional médico de confianza.
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 16px;">
+        <p>© 2026 César Rueda Murillo. Terapeuta Certificado Campus CDE. Todos los derechos reservados.</p>
+        <p>Contacto directo: +52 55 7433 3257 | cesarrueda.de@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/525574333257?text=Hola%20Cesar,%20quiero%20informaci%C3%B3n%20sobre%20tus%20sesiones%20de%20desprogramaci%C3%B3n%20evolutiva" target="_blank" class="floating-wa" title="Escríbeme por WhatsApp">
+    💬
+  </a>
+
+  <!-- LÓGICA INTERACTIVA DEL ESCÁNER -->
+  <script>
+    const userAnswers = {};
+
+    function selectOption(step, value) {
+      userAnswers['step' + step] = value;
+      document.getElementById('step-' + step).classList.remove('active');
+      const nextStep = step + 1;
+      document.getElementById('step-' + nextStep).classList.add('active');
+      document.getElementById('quiz-progress-bar').style.width = (nextStep * 33) + '%';
+    }
+
+    function finishQuiz(value) {
+      userAnswers['step3'] = value;
+      document.getElementById('step-3').classList.remove('active');
+      document.getElementById('step-result').classList.add('active');
+      document.getElementById('quiz-progress-bar').style.width = '100%';
+
+      // Síntesis interactiva simulando el motor CDE
+      const area = userAnswers.step1 || 'tus bloqueos actuales';
+      const clan = userAnswers.step2 || 'historias no resueltas';
+      const emocion = userAnswers.step3 || 'autosabotaje';
+
+      const title = `Lealtad Inconsciente Detectada en: ${area}`;
+      const body = `Has identificado un conflicto recurrente en <strong>${area}</strong>, con una raíz en vivencias familiares de <strong>${clan}</strong>. <br><br>
+      Cuando estás cerca de tu meta, tu inconsciente biológico dispara una respuesta de <strong>"${emocion}"</strong> para mantenerte dentro de la zona segura del clan familiar (fidelidad invisible). <br><br>
+      <strong>En la sesión con César Rueda</strong>, localizaremos la fecha y el ancestro exacto que originó esta memoria biológica para devolverle la carga y habilitar tu propio camino con total permiso.`;
+
+      document.getElementById('res-title').innerText = title;
+      document.getElementById('res-body').innerHTML = body;
+
+      // Generar link de WhatsApp personalizado con el diagnóstico
+      const msg = encodeURIComponent(`Hola César, acabo de hacer el Escáner en tu web. Mi resultado arrojó un patrón de "${area}" con lealtad por "${emocion}". Me gustaría agendar una sesión online para desprogramarlo.`);
+      document.getElementById('res-whatsapp-btn').href = `https://wa.me/525574333257?text=${msg}`;
+    }
+
+    function toggleFaq(elem) {
+      elem.classList.toggle('open');
+      const symbol = elem.querySelector('.faq-question span:last-child');
+      symbol.innerText = elem.classList.contains('open') ? '−' : '+';
+    }
+  </script>
+
+</body>
+</html>
